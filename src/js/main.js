@@ -1,3 +1,5 @@
+
+
 var darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
 darkModeQuery.addListener(function (query) {
@@ -18,4 +20,14 @@ function sendMessage(message) {
   iframe.contentWindow.postMessage({ giscus: message }, iframe.src);
 }
 
-setTheme(localStorage.getItem("theme"));
+function setThemeByLS () {
+	if (localStorage.getItem("theme") == "dark" || localStorage.getItem("theme") == "light") {
+		setTheme(localStorage.getItem("theme"));
+	}
+}
+setThemeByLS();
+
+
+window.onfocus = function(e){
+	setThemeByLS();
+}
