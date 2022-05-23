@@ -5,12 +5,16 @@
  --light-text: rgb(41, 41, 41);
  --light-link: rgb(117, 117, 117);
  --light-title: rgb(6 6 6);
+ --light-border: rgba(230, 230, 230, 1);
+ --light-hr : color-mod(var(--color) a(10%));
  
  --dark-accent:#ff8b26;
  --dark-background:#000001;
  --dark-text:#d6d6d6;
  --dark-link: #8a8a8a;
  --dark-title: #f9f9f9;
+ --dark-border: rgba(25, 25, 25, 1);
+ --dark-hr : color-mod(var(--color) a(50%));
 }
 
 
@@ -21,6 +25,8 @@
  --color: var(--light-text);
  --link: var(--light-link);
  --title: var(--light-title);
+ --border: var(--light-border);
+ --hr: var(--light-hr);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,6 +36,8 @@
  --color: var(--dark-text);
  --link: var(--dark-link);
  --title: var(--dark-title);
+ --border: var(--dark-border);
+ --hr: var(--dark-hr);
 }
 }
 
@@ -39,6 +47,8 @@
  --color: var(--light-text);
  --link: var(--light-link);
  --title: var(--light-title);
+ --post-border: var(--light-border);
+ --hr: var(--light-hr);
 }
 :root[data-theme="dark"] {
  --accent: var(--dark-accent);
@@ -46,4 +56,6 @@
  --color: var(--dark-text);
  --link: var(--dark-link);
  --title: var(--dark-title);
+ --post-border: var(--dark-border);
+ --hr: var(--dark-hr);
 }

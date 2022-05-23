@@ -8,6 +8,7 @@ darkModeQuery.addListener(function (query) {
 window.setTheme = function (theme) {
 	document.documentElement.setAttribute("data-theme", theme);
 	sendMessage ({ setConfig: {theme: theme} });
+	localStorage.setItem("theme",theme);
 };
 
 // additional script to align the giscus theme to the page theme
@@ -16,3 +17,5 @@ function sendMessage(message) {
   if (!iframe) return;
   iframe.contentWindow.postMessage({ giscus: message }, iframe.src);
 }
+
+setTheme(localStorage.getItem("theme"));

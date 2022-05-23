@@ -15,8 +15,18 @@
 </script>
 
 <script>
-var giscus_darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
-if (giscus_darkModeQuery.matches) {
-document.querySelector('script.giscus-script').setAttribute("data-theme","dark");
+// script to set the giscus theme before the widget loads, to avoid FLIC
+
+var initial_theme = "light";
+if (localStorage.getItem("theme") != "dark" &&  localStorage.getItem("theme") != "light") {
+	var giscus_darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+	if (giscus_darkModeQuery.matches) {
+ 		initial_theme = "dark";
+	}
+} else {
+	if (localStorage.getItem("theme") == "dark") {
+		initial_theme = "dark";
+	}
 }
+document.querySelector("script.giscus-script").setAttribute("data-theme",initial_theme);
 </script>
