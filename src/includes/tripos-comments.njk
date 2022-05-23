@@ -1,4 +1,4 @@
-<script src="https://giscus-one.vercel.app/client.js"
+<script class="giscus-script" src="https://giscus-one.vercel.app/client.js"
     data-repo="tripos-education/maths-tripos-questions"
     data-repo-id="R_kgDOHNk5nA"
     data-category="Question comments"
@@ -12,4 +12,36 @@
     data-discussions-summary={{ latestComments }}
     crossorigin="anonymous"
     async>
+</script>
+
+<script>
+// additional script to align the giscus theme to the page theme
+function sendMessage(message) {
+  const iframe = document.querySelector('iframe.giscus-frame');
+  if (!iframe) return;
+  iframe.contentWindow.postMessage({ giscus: message }, iframe.src);
+}
+
+var darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+if (darkModeQuery.matches) {
+	const gscript= document.querySelector('script.giscus-script');
+	gscript.setAttribute("data-theme","dark");
+}
+
+darkModeQuery.addListener(function (query) {
+	if (query.matches) {
+		sendMessage({
+  			setConfig: {
+    				theme: 'dark'
+ 			 }
+		});
+	} else {
+		sendMessage({
+  			setConfig: {
+    				theme: 'light'
+ 			 }
+		});
+	}
+});
 </script>
